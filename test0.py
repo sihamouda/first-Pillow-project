@@ -15,7 +15,7 @@ def resizeALL(pathSource,pathDestination):
     CreateDir(pathDestination)
     for file in files:
         if file.endswith(".jpg"):
-            Image.open(file).resize((1620,2430)).save(pathDestination+"\\"+ os.path.splitext(file)[0]+"_resized.jpg")
+            Image.open(file).resize((1620,2430)).save(pathDestination+"/"+ os.path.splitext(file)[0]+"_resized.jpg")
 
 #testing
 resizeALL(".","C:\\Users\\aniss\\Desktop\\PillowStuff\\NewFolder2")
