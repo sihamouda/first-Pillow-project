@@ -17,5 +17,16 @@ def resizeALL(pathSource,pathDestination):
         if file.endswith(".jpg"):
             Image.open(file).resize((1620,2430)).save(pathDestination+"/"+ os.path.splitext(file)[0]+"_resized.jpg")
 
+#watermark a specific image with a logo given an saved to a chosen path with the name new.jpg
+def watermark(pathImage,pathLogo,pathSave):
+    logo=Image.open(pathLogo)
+    image=Image.open(pathImage)
+    position = ((image.width - logo.width), (image.height - logo.height))
+    image.paste(logo, position,logo)
+    image.save(pathSave+'/new.jpg')
+
 #testing
-resizeALL(".","C:\\Users\\aniss\\Desktop\\PillowStuff\\NewFolder2")
+pathLogo='C:\\Users\\aniss\\Desktop\\PillowStuff\\Watermark\\wm.png'
+pathImage='C:\\Users\\aniss\\Desktop\\PillowStuff\\TLP_0653-Edit.jpg'
+pathSave='C:\\Users\\aniss\\Desktop\\PillowStuff'
+watermark(pathImage,pathLogo,pathSave)
