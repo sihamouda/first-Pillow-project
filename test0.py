@@ -34,10 +34,16 @@ def watermarkImage(pathImage,pathLogo,pathSave):
     fileName=os.path.basename(pathImage).split('.')[0]
     image.save(pathSave+'/'+fileName+'_watermarked.jpg')
 
+def watermarkALL(pathSource,pathLogo,pathDestination):
+    files=os.listdir(pathSource)
+    CreateDir(pathDestination)
+    for file in files:
+        if file.endswith('.jpg'):
+            watermarkImage(pathSource+'/'+file,pathLogo,pathDestination)
 #testing
 pathLogo='C:\\Users\\aniss\\Desktop\\PillowStuff\\Watermark\\wm.png'
 pathImage='C:\\Users\\aniss\\Desktop\\PillowStuff\\TLP_0653-Edit_resized.jpg'
 pathSave='C:\\Users\\aniss\\Desktop\\PillowStuff'
 
-resizeALL(pathSave,pathSave)
-watermarkImage(pathImage,pathLogo,pathSave)
+resizeALL(pathSave,pathSave+'\\resize')
+watermarkALL(pathSave+'\\resize',pathLogo,pathSave+'\\resize\\watermark')
