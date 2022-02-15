@@ -11,7 +11,7 @@ def CreateDir(path):
 def resizeImage(pathImage,pathSave):
     image=Image.open(pathImage).resize((1620,2430))
     fileName=os.path.basename(pathImage).split('.')[0]
-    image.save(pathSave+'/'+fileName+'_resized.jpg') 
+    image.save(pathSave+'/'+fileName+'_resized.jpg',dpi=(150,150)) 
 
 #resize all .jpg photos that exist in a specific path (pathSource)
 #and save the result in specific path (pathDestination)
@@ -45,8 +45,7 @@ def watermarkALL(pathSource,pathLogo,pathDestination):
             watermarkImage(pathSource+'/'+file,pathLogo,pathDestination)
 #testing
 pathLogo='C:\\Users\\aniss\\Desktop\\PillowStuff\\Watermark\\wm.png'
-pathImage='C:\\Users\\aniss\\Desktop\\PillowStuff\\TLP_0653-Edit_resized.jpg'
+pathImage='C:\\Users\\aniss\\Desktop\\PillowStuff\\sad dog.jpg'
 pathSave='C:\\Users\\aniss\\Desktop\\PillowStuff'
 
-resizeALL(pathSave,pathSave+'\\resize')
-watermarkALL(pathSave+'\\resize',pathLogo,pathSave+'\\resize\\watermark')
+resizeImage(pathImage,pathSave)
