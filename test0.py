@@ -34,6 +34,9 @@ def watermarkImage(pathImage,pathLogo,pathSave):
     fileName=os.path.basename(pathImage).split('.')[0]
     image.save(pathSave+'/'+fileName+'_watermarked.jpg')
 
+#watermark all .jpg photos that exist in a specific path (pathSource)
+#and save the result in specific path (pathDestination)
+#note:pathDestination will be created if it does not exists
 def watermarkALL(pathSource,pathLogo,pathDestination):
     files=os.listdir(pathSource)
     CreateDir(pathDestination)
